@@ -1,0 +1,4 @@
+rootProject.name = 'SLM'
+include 'slm-bootstrap'
+include 'slm-commons'
+
