@@ -2,13 +2,12 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.4.10'
 }
 
-String full_name = "SimpleLibraryManager"
-group 'me.scoretwo'
-version '1.0.0'
-
-
+defaultTasks 'clean', 'build', 'test', 'jar'
 
 allprojects {
+    group 'me.scoretwo'
+    version '1.0.0'
+
     repositories {
         mavenCentral()
         maven {url 'https://repo.codemc.org/repository/maven-public'}
@@ -18,6 +17,10 @@ allprojects {
         maven {url 'http://repo.dakanilabs.com/repository/public/'}
         maven {url 'https://repo.extendedclip.com/content/repositories/placeholderapi/'}
     }
+
+    project.ext {
+        full_name = "SimpleLibraryManager"
+    }
 }
 
 subprojects {
@@ -26,9 +29,9 @@ subprojects {
     apply plugin: 'maven-publish'
 
     dependencies {
-        implementation 'org.jetbrains.kotlin:kotlin-stdlib'
-        implementation 'commons-io:commons-io:2.7'
-        compile 'org.apache.commons:commons-lang3:3.11'
+        compile 'org.jetbrains.kotlin:kotlin-stdlib'
+        compile 'commons-io:commons-io:2.7'
+        implementation 'org.apache.commons:commons-lang3:3.11'
     }
 
     compileKotlin {
